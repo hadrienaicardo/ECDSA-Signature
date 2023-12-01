@@ -1,0 +1,10 @@
+This adresse/private key pair are stocked here only for testing, NEVER share your private key in real use case
+
+Adresse : 034c4c6e06c67b82c559c430e00f68dfaea6ec2e3a3fbbc40cf7feb1ab2a078581
+Clé privée : 293db4b7c71c82754287c6fa11b9b3e5279a2d4511bdedb4e836f81f6d49379a
+
+Adresse : 02c0e19fe5ccd5013c02c895584f36c72492fb91dfca4c338c081c8de3a59fdc63
+Clé privée : 2a7629083934ecb1ff84abcaafa5663e171b405316c38e8a96a8790ece9d8d81
+
+Adresse : 030c9ecbe5c0a345226c5bfe853cb64b68a6b9c155259678d8cd2cf4081e15e4ab
+Clé privée : df487fdf2c86c673ba6a168896efaf2071926b23e333092835cf01854123eb26
