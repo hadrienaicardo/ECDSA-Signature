@@ -11,7 +11,7 @@
             <div class="col-1">
                 <n-form-item label="Your public key" path="publicKey">
                     <div>
-                        <n-input type="text" v-model:value="publicKey" placeholder="Recipient" />
+                        <n-input type="text" v-model:value="publicKey" placeholder="Your public key" />
                     </div>
                 </n-form-item>
             </div> 
@@ -20,7 +20,7 @@
             <div class="col-1">
                 <n-form-item label="Your private key" path="privateKey">
                     <div>
-                        <n-input type="text" v-model:value="privateKey" placeholder="Private Key" />
+                        <n-input type="text" v-model:value="privateKey" placeholder="Your private Key" />
                     </div>
                 </n-form-item>
             </div> 
@@ -30,7 +30,7 @@
         <div class="col-1">
             <n-form-item label="Amount to send" path="amount">
                 <div>
-                    <n-input-number type="text" v-model:value="amount" placeholder="Amount" :min="0" />
+                    <n-input-number type="text" v-model:value="amount" placeholder="Amount to send" :min="0" />
                 </div>
             </n-form-item>
         </div>
@@ -44,7 +44,7 @@
 
 <script>
     import { NInputNumber, NFormItem, NPopconfirm, NInput, NDataTable, NButton, useMessage, NCard, NPopover } from 'naive-ui'
-    import { ref, reactive, defineComponent, h, computed } from 'vue'
+    import { ref, defineComponent } from 'vue'
     import { RouterLink } from 'vue-router'
     import { keccak256 } from 'ethereum-cryptography/keccak'
     import { secp256k1 } from 'ethereum-cryptography/secp256k1'
@@ -60,7 +60,7 @@
         },
         name: 'Transaction',
         
-        setup (props) {
+        setup () {
             const privateKey = ref(null);
             const publicKey = ref(null);
             const recipient  = ref(null);
@@ -75,7 +75,7 @@
             }
 
             const sendTransaction = async() => {
-                
+
                 let hashed = hashMessage(`Envoi de ${parseInt(amount.value)} ETH`);
                 let signature = secp256k1.sign(hashed, hexToBytes(privateKey.value));
                 signature.r = signature.r.toString()
@@ -146,74 +146,13 @@
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-@import url('https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css');
-    .mainPart {
-      margin-left: 2%;
-      margin-top: 2%;
-      margin-right: 2%;
-    }
-
-    * {
-        font-family: 'Poppins', sans-serif;
-    }
-    
-    .box {
-        display: flex;
-    }
-
-    .sender {
-        width: 50%;
-        margin-right: 0.5%;
-    }
-
-    .receiver {
-        width: 50%;
-        margin-left: 0.5%;
-    }
-    
-    
-    /* CSS du titre/logo */
-    
-    .logo {
-          font-size: 30px;
-    }
-    
-    h1 {
-        display: inline-block;
-        margin-left: 15px;
-        font-weight: 400;
-        font-size: 18px;
-        vertical-align: top;
-    }
 
     h2 {
         margin-top: 0px;
     }
 
-    
-    
-    .subtitle {
-        margin-left: 15px;
-        font-weight: 400;
-        font-size: 15px;
-        color: rgb(110, 110, 110);
-        font-family: v-sans, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    }
-
-    .col-1 {
-        flex: 1;
-        margin-right: 15px;
-    }
-    
-    .headerContainer {
-        display: flex;
-        align-items: center;
-        margin-bottom : 15px;
-    }
-
-    :deep(.n-form-item) {
-        width: 50% !important;
+    .n-form-item {
+        margin-right: 10px;
     }
 
 </style>

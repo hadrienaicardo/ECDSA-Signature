@@ -29,12 +29,9 @@
 </template>
 
 <script>
-    import { NFormItem, NPopconfirm, NInput, NDataTable, NButton, useMessage, NCard, NPopover } from 'naive-ui'
-    import { ref, reactive, defineComponent, h, computed } from 'vue'
+    import { NFormItem, NPopconfirm, NInput, NDataTable, NButton, useMessage, NCard } from 'naive-ui'
+    import { ref, defineComponent } from 'vue'
     import { RouterLink } from 'vue-router'
-    import { keccak256 } from 'ethereum-cryptography/keccak'
-    import { utf8ToBytes } from 'ethereum-cryptography/utils'
-    import { secp256k1 } from 'ethereum-cryptography/secp256k1'
     import server from '../scripts/server';
     
     export default defineComponent ({
@@ -43,7 +40,7 @@
         },
         name: 'Wallet',
         
-        setup (props) {
+        setup () {
             const publicKey = ref(null);
             const balance = ref(null);
             const message = useMessage();
@@ -76,75 +73,10 @@
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-@import url('https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css');
-    .mainPart {
-      margin-left: 2%;
-      margin-top: 2%;
-      margin-right: 2%;
-    }
-
-    * {
-        font-family: 'Poppins', sans-serif;
-    }
-    
-    .box {
-        display: flex;
-    }
-
-
-    .sender {
-        width: 50%;
-        margin-right: 0.5%;
-    }
-
-    .receiver {
-        width: 50%;
-        margin-left: 0.5%;
-    }
-    
-    
-    /* CSS du titre/logo */
-    
-    .logo {
-          font-size: 30px;
-    }
-    
-    h1 {
-        display: inline-block;
-        margin-left: 15px;
-        font-weight: 400;
-        font-size: 18px;
-        vertical-align: top;
-    }
 
     h2 {
         margin-top: 0px;
     }
 
-    
-    
-    .subtitle {
-        margin-left: 15px;
-        font-weight: 400;
-        font-size: 15px;
-        color: rgb(110, 110, 110);
-        font-family: v-sans, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    }
-
-    .col-1 {
-        flex: 1;
-        margin-right: 15px;
-    }
-    
-    .headerContainer {
-        display: flex;
-        align-items: center;
-        margin-bottom : 15px;
-    }
-
-    :deep(.n-input) {
-        min-width: 200% !important;
-    }
 
 </style>
